@@ -12,12 +12,9 @@ client.on("ready", () => {
 })
 
 client.on("messageCreate", (message) => {
-  if (message.author.bot)
-    return;
-
-  if (message.content === "ff15")
+  if (message.content === "ping")
     message.reply(({
-      content: "Hi from bot",
+      content: "pong",
     }))
 })
 
