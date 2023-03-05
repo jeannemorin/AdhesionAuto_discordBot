@@ -17,10 +17,18 @@ function setGuild() {
 }
 
 function getMember() {
-  const user_id = client.users.cache.find(user => user.username == memberName).id;
-  const member = myGuild.members.cache.get(user_id);
+  const user = client.users.cache.find(user => user.username == memberName);
 
-  return member;
+  if (user)
+  {
+    const user_id = user.id;
+    const member = myGuild.members.cache.get(user_id);
+    return member;
+  }
+  else
+  {
+    throw Error("Member not existing")
+  }
 }
 
 client.on("ready", () => {
